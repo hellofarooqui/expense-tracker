@@ -1,26 +1,25 @@
-import { useState } from "react";
-import axios from "axios";
-import Login from "./pages/Login";
+import React from 'react'
+import { BrowserRouter, Route,Routes } from 'react-router-dom'
+import RootLayout from './layouts/RootLayout'
+import Home from './pages/Home'
+import NewExpense from './pages/NewExpense'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
-function App() {
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
-
-
-
-  if (!token) {
-    return (<Login setToken={setToken}/>)
-  }
-
+const App = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Welcome to Expense Tracker</h1>
-      <p>You’re logged in!</p>
-      <button onClick={() => {
-        setToken("");
-        localStorage.removeItem("token");
-      }}>Logout</button>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route element={<RootLayout/>}>
+          <Route path='/' element={<Home/>} />
+          <Route path="/new-expense" element={<NewExpense/>}/>
+        </Route>
+
+        <Route path='/login' element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
