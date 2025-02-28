@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import NewExpense from './pages/NewExpense'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import EditExpense from './pages/EditExpense'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route element={<RootLayout/>}>
           <Route path='/' element={<Home/>} />
           <Route path="/new-expense" element={<NewExpense/>}/>
+          <Route path="/edit/:id" element={<EditExpense/>}/>
         </Route>
 
         <Route path='/login' element={<Login/>} />

@@ -7,7 +7,7 @@ const router = express.Router()
 router.get("/",auth,getAllExpenses)
 router.post("/",auth, addExpense)
 router.get("/:id",auth,getExpenseDetails)
-router.put("/:id",updatedExpense)
+router.put("/:id",auth,updatedExpense)
 router.delete("/:id",auth,deleteOneExpense)
 
 export default router
