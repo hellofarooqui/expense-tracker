@@ -1,6 +1,8 @@
 import axios from "axios"
 
-const server = "http://localhost:5000/api/expense" 
+const backend = "https://expense-tracker-i40u.onrender.com"
+
+const server = `${backend}/api/expense`
 const token = localStorage.getItem("token")
 
 export const getAllExpenses = async () => {
