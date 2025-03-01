@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
+const backend_url = "https://expense-tracker-i40u.onrender.com"
+
+
 const Login = ({setToken}) => {
 
     const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -9,7 +12,7 @@ const Login = ({setToken}) => {
 
         e.preventDefault();
         try {
-          const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
+          const res = await axios.post(`${backend_url}/api/auth/login`, credentials);
           //setToken(res.data.token);
           localStorage.setItem("token", res.data.token);
         } catch (error) {
