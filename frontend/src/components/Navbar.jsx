@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+  }
   return (
     <div className='w-screen bg-zinc-800 text-white'>
         <div className='w-full flex justify-between px-8 py-4'>
@@ -9,7 +12,7 @@ const Navbar = () => {
             <div>
                 <ul className='flex gap-4 items-center'>
                     <li><Link to='/'>Home</Link></li>
-                    <li>Logout</li>
+                    <li><button onClick={handleLogout}>Logout</button></li>
                 </ul>
             </div>
         </div>
